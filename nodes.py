@@ -8,5 +8,33 @@ class node:
         self.values=values
 
 
+def creates(list1:list):
+    backs=None
+    nexts=None
+    currents=None
+    rets=None
+    l=len(list1)
+    for a in range(l):
+        if backs!=None:
+           b=list1[a].encode()
+           currents=node(names=list1[a],values=b,backs=backs)
+           backs.nexts=currents
+           backs=currents
+        else:
+           b=list1[a].encode()
+           currents=node(names=list1[a],values=b)
+           backs=currents
+           rets=currents
+    return rets
 
+
+
+
+def reports(nods):
+    n1=nods
+    while 1:
+        print(n1.names+">"+n1.values.decode())
+        if n1.nexts==None:
+            break
+        n1=n1.nexts
 
